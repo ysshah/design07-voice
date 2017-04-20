@@ -1,0 +1,140 @@
+{
+  "intents": [
+    {
+      "intent": "FindIntent",
+      "slots": [
+        {
+          "name": "SearchTerms",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": “AddIngredIntent”,
+      "slots": [
+        {
+          "name": “IngredName”,
+          "type": "AMAZON.LITERAL"
+        },
+        {
+          "name": “IngredAmount”,
+          "type": "AMAZON.NUMBER”
+        },
+        {
+          "name": “IngredUnit”,
+          "type": “LIST_OF_UNITS”
+        }
+      ]
+    },
+    {
+      "intent": “AddIngredNoAmountNoUnitIntent”,
+      "slots": [
+        {
+          "name": “IngredName”,
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": “AddRecipeIntent”,
+      "slots": [
+        {
+          "name": “RecipeName”,
+          "type": "AMAZON.LITERAL"
+        },
+        {
+          "name": “MealTime”,
+          "type": “LIST_OF_MEALTIMES”
+        },
+        {
+          "name": “Date”,
+          "type": "AMAZON.DATE”
+        }
+      ]
+    },
+    {
+      "intent": “AddRecipeNoMealTimeIntent”,
+      "slots": [
+        {
+          "name": “RecipeName”,
+          "type": "AMAZON.LITERAL"
+        },
+        {
+          "name": “Date”,
+          "type": "AMAZON.DATE”
+        }
+      ]
+    },
+    {
+      "intent": “AddRecipeNoDateIntent”,
+      "slots": [
+        {
+          "name": “RecipeName”,
+          "type": "AMAZON.LITERAL"
+        },
+        {
+          "name": “MealTime”,
+          "type": “LIST_OF_MEALTIMES”
+        }
+      ]
+    },
+    {
+      "intent": “MealTimeSpecifierIntent”,
+      "slots": [
+        {
+          "name": “MealTime”,
+          "type": “LIST_OF_MEALTIMES”
+        }
+      ]
+    },
+    {
+      "intent": “DateSpecifierIntent”,
+      "slots": [
+        {
+          "name": “Date”,
+          "type": "AMAZON.DATE”
+        }
+      ]
+    },
+    {
+      "intent": “AmountAndUnitIntent”,
+      "slots": [
+        {
+          "name": “IngredAmount”,
+          "type": "AMAZON.NUMBER”
+        },
+        {
+          "name": “IngredUnit”,
+          "type": “LIST_OF_UNITS”
+        }
+      ]
+    },
+    {
+      "intent": “AmountSpecifierIntent”,
+      "slots": [
+        {
+          "name": “IngredAmount”,
+          "type": "AMAZON.NUMBER”
+        }
+      ]
+    },
+    {
+      "intent": “UnitSpecifierIntent”,
+      "slots": [
+        {
+          "name": “IngredUnit”,
+          "type": “LIST_OF_UNITS”
+        }
+      ]
+    },
+    { "intent": "StartIngredIntent" },
+    { "intent": "PrevIngredIntent" },
+    { "intent": "NextIngredIntent" },
+    { "intent": "StartInstIntent" },
+    { "intent": "PrevInstIntent" },
+    { "intent": "NextInstIntent" },
+    { "intent": "HomeIntent" },
+    { "intent": "RestartIntent" },
+    { "intent": "GeneralQueryIntent" }
+  ]
+}
