@@ -1,27 +1,3 @@
-FindIntent find {this|SearchTerms}
-FindIntent find {this is|SearchTerms}
-FindIntent find {this is the|SearchTerms}
-FindIntent find {this is the longest|SearchTerms}
-FindIntent find {this is the longest recipe|SearchTerms}
-FindIntent find {this is the longest recipe name|SearchTerms}
-FindIntent I'd like to make {this|SearchTerms}
-FindIntent I'd like to make {this is|SearchTerms}
-FindIntent I'd like to make {this is the|SearchTerms}
-FindIntent I'd like to make {this is the longest|SearchTerms}
-FindIntent I'd like to make {this is the longest recipe|SearchTerms}
-FindIntent I'd like to make {this is the longest recipe name|SearchTerms}
-AddIngredIntent Add {IngredAmount} {IngredUnit} of {this|IngredName} to the pantry
-AddIngredIntent Add {IngredAmount} {IngredUnit} of {this is|IngredName} to the pantry
-AddIngredIntent Add {IngredAmount} {IngredUnit} of {this is the|IngredName} to the pantry
-AddIngredIntent Add {IngredAmount} {IngredUnit} of {this is the longest|IngredName} to the pantry
-AddIngredIntent Add {IngredAmount} {IngredUnit} of {this is the longest ingredient|IngredName} to the pantry
-AddIngredIntent Add {IngredAmount} {IngredUnit} of {this is the longest ingredient name|IngredName} to the pantry
-AddIngredNoAmountNoUnitIntent Add {this|IngredName} to the pantry
-AddIngredNoAmountNoUnitIntent Add {this is|IngredName} to the pantry
-AddIngredNoAmountNoUnitIntent Add {this is the|IngredName} to the pantry
-AddIngredNoAmountNoUnitIntent Add {this is the longest|IngredName} to the pantry
-AddIngredNoAmountNoUnitIntent Add {this is the longest ingredient|IngredName} to the pantry
-AddIngredNoAmountNoUnitIntent Add {this is the longest ingredient name|IngredName} to the pantry
 AddRecipeIntent I want to eat {cream|RecipeName} for {MealType} on {Date}
 AddRecipeIntent I want to eat {cream puffs|RecipeName} for {MealType} on {Date}
 AddRecipeIntent I want to eat {quick oatmeal pancakes|RecipeName} for {MealType} on {Date}
@@ -29,6 +5,7 @@ AddRecipeIntent I want to eat {lemon poppy seed pancakes|RecipeName} for {MealTy
 AddRecipeIntent I want to eat {chef john's chicken and mushrooms|RecipeName} for {MealType} on {Date}
 AddRecipeIntent I want to eat {oven baked garlic and parmesan fries|RecipeName} for {MealType} on {Date}
 AddRecipeIntent I want to eat {carrot cake with pineapple cream cheese frosting|RecipeName} for {MealType} on {Date}
+
 AddRecipeIntent I want to eat {cream|RecipeName} on {Date} for {MealType}
 AddRecipeIntent I want to eat {cream puffs|RecipeName} on {Date} for {MealType}
 AddRecipeIntent I want to eat {quick oatmeal pancakes|RecipeName} on {Date} for {MealType}
@@ -36,6 +13,7 @@ AddRecipeIntent I want to eat {lemon poppy seed pancakes|RecipeName} on {Date} f
 AddRecipeIntent I want to eat {chef john's chicken and mushrooms|RecipeName} on {Date} for {MealType}
 AddRecipeIntent I want to eat {oven baked garlic and parmesan fries|RecipeName} on {Date} for {MealType}
 AddRecipeIntent I want to eat {carrot cake with pineapple cream cheese frosting|RecipeName} on {Date} for {MealType}
+
 AddRecipeIntent On {Date} I want to eat {cream|RecipeName} for {MealType}
 AddRecipeIntent On {Date} I want to eat {cream puffs|RecipeName} for {MealType}
 AddRecipeIntent On {Date} I want to eat {quick oatmeal pancakes|RecipeName} for {MealType}
@@ -43,6 +21,7 @@ AddRecipeIntent On {Date} I want to eat {lemon poppy seed pancakes|RecipeName} f
 AddRecipeIntent On {Date} I want to eat {chef john's chicken and mushrooms|RecipeName} for {MealType}
 AddRecipeIntent On {Date} I want to eat {oven baked garlic and parmesan fries|RecipeName} for {MealType}
 AddRecipeIntent On {Date} I want to eat {carrot cake with pineapple cream cheese frosting|RecipeName} for {MealType}
+
 AddRecipeNoDateIntent I want to eat {cream|RecipeName} for {MealType}
 AddRecipeNoDateIntent I want to eat {cream puffs|RecipeName} for {MealType}
 AddRecipeNoDateIntent I want to eat {quick oatmeal pancakes|RecipeName} for {MealType}
@@ -50,6 +29,7 @@ AddRecipeNoDateIntent I want to eat {lemon poppy seed pancakes|RecipeName} for {
 AddRecipeNoDateIntent I want to eat {chef john's chicken and mushrooms|RecipeName} for {MealType}
 AddRecipeNoDateIntent I want to eat {oven baked garlic and parmesan fries|RecipeName} for {MealType}
 AddRecipeNoDateIntent I want to eat {carrot cake with pineapple cream cheese frosting|RecipeName} for {MealType}
+
 AddRecipeNoMealTypeIntent I want to eat {cream|RecipeName} on {Date}
 AddRecipeNoMealTypeIntent I want to eat {cream puffs|RecipeName} on {Date}
 AddRecipeNoMealTypeIntent I want to eat {quick oatmeal pancakes|RecipeName} on {Date}
@@ -57,6 +37,7 @@ AddRecipeNoMealTypeIntent I want to eat {lemon poppy seed pancakes|RecipeName} o
 AddRecipeNoMealTypeIntent I want to eat {chef john's chicken and mushrooms|RecipeName} on {Date}
 AddRecipeNoMealTypeIntent I want to eat {oven baked garlic and parmesan fries|RecipeName} on {Date}
 AddRecipeNoMealTypeIntent I want to eat {carrot cake with pineapple cream cheese frosting|RecipeName} on {Date}
+
 AddRecipeNoMealTypeIntent On {Date} I want to eat {cream|RecipeName}
 AddRecipeNoMealTypeIntent On {Date} I want to eat {cream puffs|RecipeName}
 AddRecipeNoMealTypeIntent On {Date} I want to eat {quick oatmeal pancakes|RecipeName}
@@ -64,11 +45,43 @@ AddRecipeNoMealTypeIntent On {Date} I want to eat {lemon poppy seed pancakes|Rec
 AddRecipeNoMealTypeIntent On {Date} I want to eat {chef john's chicken and mushrooms|RecipeName}
 AddRecipeNoMealTypeIntent On {Date} I want to eat {oven baked garlic and parmesan fries|RecipeName}
 AddRecipeNoMealTypeIntent On {Date} I want to eat {carrot cake with pineapple cream cheese frosting|RecipeName}
+
+FindIntent find {cream|SearchTerms}
+FindIntent find {cream puffs|SearchTerms}
+FindIntent find {quick oatmeal pancakes|SearchTerms}
+FindIntent find {lemon poppy seed pancakes|SearchTerms}
+FindIntent find {chef john's chicken and mushrooms|SearchTerms}
+FindIntent find {oven baked garlic and parmesan fries|SearchTerms}
+FindIntent find {carrot cake with pineapple cream cheese frosting|SearchTerms}
+
+FindIntent I'd like to make {cream|SearchTerms}
+FindIntent I'd like to make {cream puffs|SearchTerms}
+FindIntent I'd like to make {quick oatmeal pancakes|SearchTerms}
+FindIntent I'd like to make {lemon poppy seed pancakes|SearchTerms}
+FindIntent I'd like to make {chef john's chicken and mushrooms|SearchTerms}
+FindIntent I'd like to make {oven baked garlic and parmesan fries|SearchTerms}
+FindIntent I'd like to make {carrot cake with pineapple cream cheese frosting|SearchTerms}
+
+AddIngredIntent Add {IngredAmount} {IngredUnit} of {this|IngredName} to the pantry
+AddIngredIntent Add {IngredAmount} {IngredUnit} of {this is|IngredName} to the pantry
+AddIngredIntent Add {IngredAmount} {IngredUnit} of {this is the|IngredName} to the pantry
+AddIngredIntent Add {IngredAmount} {IngredUnit} of {this is the longest|IngredName} to the pantry
+AddIngredIntent Add {IngredAmount} {IngredUnit} of {this is the longest ingredient|IngredName} to the pantry
+AddIngredIntent Add {IngredAmount} {IngredUnit} of {this is the longest ingredient name|IngredName} to the pantry
+
+AddIngredNoAmountNoUnitIntent Add {this|IngredName} to the pantry
+AddIngredNoAmountNoUnitIntent Add {this is|IngredName} to the pantry
+AddIngredNoAmountNoUnitIntent Add {this is the|IngredName} to the pantry
+AddIngredNoAmountNoUnitIntent Add {this is the longest|IngredName} to the pantry
+AddIngredNoAmountNoUnitIntent Add {this is the longest ingredient|IngredName} to the pantry
+AddIngredNoAmountNoUnitIntent Add {this is the longest ingredient name|IngredName} to the pantry
+
 IngredAmountAndUnitSpecifierIntent {IngredAmount} {IngredUnit}
 IngredAmountSpecifierIntent {IngredAmount}
 IngredUnitSpecifierIntent {IngredUnit}
 DateSpecifierIntent {Date}
 RecipeMealTypeSpecifierIntent {MealType}
+
 StartIngredIntent ingredients
 StartIngredIntent read ingredients
 StartIngredIntent read ingredients list
@@ -76,13 +89,17 @@ StartIngredIntent read the ingredients list
 StartIngredIntent read the list of ingredients
 StartIngredIntent list the ingredients
 StartIngredIntent what are the ingredients
+
 PrevIngredIntent last ingredient
 PrevIngredIntent previous ingredient
+
 NextIngredIntent next ingredient
+
 StartInstIntent read recipe
 StartInstIntent read directions
 StartInstIntent read instructions
 StartInstIntent start
+
 PrevInstIntent last step
 PrevInstIntent last direction
 PrevInstIntent last instruction
@@ -95,9 +112,11 @@ PrevInstIntent what was the previous instruction
 PrevInstIntent what was the last step
 PrevInstIntent what was the last direction
 PrevInstIntent what was the last instruction
+
 NextInstIntent next step
 NextInstIntent next direction
 NextInstIntent next instruction
+
 HomeIntent main menu
 HomeIntent exit ingredients
 HomeIntent exit ingredient list
@@ -129,6 +148,7 @@ HomeIntent stop recipe directions
 HomeIntent stop instructions
 HomeIntent stop recipe instructions
 HomeIntent stop reading recipe
+
 RestartIntent start again
 RestartIntent can we restart that
 RestartIntent can we start that again
@@ -136,5 +156,6 @@ RestartIntent can we do the whole thing over
 RestartIntent can we start from the beginning
 RestartIntent can we start over
 RestartIntent start over
+
 GeneralQueryIntent what can i say
 GeneralQueryIntent what can i do
