@@ -94,33 +94,37 @@ def on_intent(intent_request, session):
         raise ValueError("Invalid intent")
 
 
+def recipeInTable(recipe_name):
+    dynamodb = boto3.resource("dynamodb", region_name="us-east-1")
+    cook_smart_recipes = dynamodb.Table("CookSmartRecipes")
+    response = cook_smart_recipes.scan()
+    for recipe in response["Items"]:
+        if recipe_name.lower() == recipe["RecipeName"].lower():
+            return recipe["RecipeName"]
+    return False
+
+
 def add_recipe_to_calendar(intent):
     card_title = "Add Recipe to Calendar"
 
-    recipe_name = intent["slots"]["RecipeName"]["value"]
+    input_recipe = intent["slots"]["RecipeName"]["value"]
+    table_recipe = recipeInTable(input_recipe)
 
-    dynamodb = boto3.resource("dynamodb", region_name="us-east-1")
-    cook_smart_recipes = dynamodb.Table("CookSmartRecipes")
-    inRecipes = cook_smart_recipes.get_item(
-        Key = {
-            "RecipeName": recipe_name
-        }
-    )
-
-    if inRecipes:
+    if table_recipe:
         date = intent["slots"]["Date"]["value"]
-        meal_type = intent["slots"]["MealType"]["value"]
+        meal_type = intent["slots"]["MealType"]["value"].title()
         cook_smart_calendar = dynamodb.Table("CookSmartCalendar")
         response = cook_smart_calendar.put_item(
             Item = {
                 "Date": date,
                 "MealType": meal_type,
-                "RecipeName": recipe_name
+                "RecipeName": table_recipe
             }
         )
-        speech_output = (recipe_name + " has been added to your calendar")
+        speech_output = table_recipe + " has been added to your calendar."
     else:
-        speech_output = (recipe_name + " is not in the list of recipes. You can add this recipe using the web application.")
+        speech_output = (input_recipe + " is not in the list of recipes. "
+            "You can add this recipe using the web application.")
 
     return build_response(build_speechlet_response(speech_output, card_title))
 
@@ -129,34 +133,29 @@ def start_add_recipe_to_calendar_no_date(intent):
     session_attributes = None
     card_title = "Start Add Recipe to Calendar No Date"
 
-    recipe_name = intent["slots"]["RecipeName"]["value"]
+    input_recipe = intent["slots"]["RecipeName"]["value"]
+    table_recipe = recipeInTable(input_recipe)
 
-    dynamodb = boto3.resource("dynamodb", region_name="us-east-1")
-    cook_smart_recipes = dynamodb.Table("CookSmartRecipes")
-    response = cook_smart_recipes.scan()
-    inRecipes = False
-    for recipe in enumerate(response["Items"]):
-        if recipe_name == recipe["RecipeName"]:
-            inRecipes = True
-
-    if inRecipes:
-        meal_type = intent["slots"]["MealType"]["value"]
+    if table_recipe:
+        meal_type = intent["slots"]["MealType"]["value"].title()
         session_attributes = {
             "inCalendar": True,
-            "RecipeName": recipe_name,
+            "RecipeName": table_recipe,
             "MealType": meal_type,
         }
-        speech_output = ("What date would you like to eat " + recipe_name + "?")
+        speech_output = "What date would you like to eat " + table_recipe + "?"
     else:
-        speech_output = (recipe_name + " is not in the list of recipe. You can add this recipe using the web application")
+        speech_output = (input_recipe + " is not in the list of recipes. "
+            "You can add this recipe using the web application")
 
-    return build_response(build_speechlet_response(speech_output, card_title), session_attributes)
+    return build_response(build_speechlet_response(speech_output, card_title),
+        session_attributes)
 
 
 def finish_add_recipe_to_calendar_no_date(intent, session):
     card_title = "Finish Add Recipe to Calendar No Date"
 
-    session_attributes = session.get("attributes",{})
+    session_attributes = session.get("attributes", {})
     recipe_name = session_attributes["RecipeName"]
     meal_type = session_attributes["MealType"]
     date = intent["slots"]["Date"]["value"]
@@ -170,7 +169,7 @@ def finish_add_recipe_to_calendar_no_date(intent, session):
             "RecipeName": recipe_name
         }
     )
-    speech_output = (recipe_name + " has been added to the calendar")
+    speech_output = recipe_name + " has been added to the calendar."
     return build_response(build_speechlet_response(speech_output, card_title))
 
 
@@ -178,26 +177,21 @@ def start_add_recipe_to_calendar_no_meal_type(intent):
     session_attributes = None
     card_title = "Start Add Recipe to Calendar No Meal Type"
 
-    recipe_name = intent["slots"]["RecipeName"]["value"]
+    input_recipe = intent["slots"]["RecipeName"]["value"]
+    table_recipe = recipeInTable(input_recipe)
 
-    dynamodb = boto3.resource("dynamodb", region_name="us-east-1")
-    cook_smart_recipes = dynamodb.Table("CookSmartRecipes")
-    response = cook_smart_recipes.scan()
-    inRecipes = False
-    for recipe in enumerate(response["Items"]):
-        if recipe_name == recipe["RecipeName"]:
-            inRecipes = True
-
-    if inRecipes:
+    if table_recipe:
         date = intent["slots"]["Date"]["value"]
         session_attributes = {
             "inCalendar": True,
-            "RecipeName": recipe_name,
+            "RecipeName": table_recipe,
             "Date": date,
         }
-        speech_output = ("Would you like to eat " + recipe_name + " for breakfast, lunch, or dinner?")
+        speech_output = ("Would you like to eat " + table_recipe + " for "
+            "breakfast, lunch, dinner, or dessert?")
     else:
-        speech_output = (recipe_name + " is not in the list of recipes. You can add this recipe using the web application")
+        speech_output = (input_recipe + " is not in the list of recipes. "
+            "You can add this recipe using the web application")
 
     return build_response(build_speechlet_response(speech_output, card_title), session_attributes)
 
@@ -208,7 +202,7 @@ def finish_add_recipe_to_calendar_no_meal_type(intent, session):
     session_attributes = session.get("attributes",{})
     recipe_name = session_attributes["RecipeName"]
     date = session_attributes["Date"]
-    meal_type = intent["slots"]["MealType"]["value"]
+    meal_type = intent["slots"]["MealType"]["value"].title()
 
     dynamodb = boto3.resource("dynamodb", region_name="us-east-1")
     cook_smart_calendar = dynamodb.Table("CookSmartCalendar")
@@ -219,7 +213,7 @@ def finish_add_recipe_to_calendar_no_meal_type(intent, session):
             "RecipeName": recipe_name
         }
     )
-    speech_output = (recipe_name + " has been added to the calendar")
+    speech_output = (recipe_name + " has been added to the calendar.")
     return build_response(build_speechlet_response(speech_output, card_title))
 
 

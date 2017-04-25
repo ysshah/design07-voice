@@ -22,42 +22,48 @@ AddIngredNoAmountNoUnitIntent Add {this is the|IngredName} to the pantry
 AddIngredNoAmountNoUnitIntent Add {this is the longest|IngredName} to the pantry
 AddIngredNoAmountNoUnitIntent Add {this is the longest ingredient|IngredName} to the pantry
 AddIngredNoAmountNoUnitIntent Add {this is the longest ingredient name|IngredName} to the pantry
-AddRecipeIntent I want to eat {this|RecipeName} for {MealType} on {Date}
-AddRecipeIntent I want to eat {this is|RecipeName} for {MealType} on {Date}
-AddRecipeIntent I want to eat {this is the|RecipeName} for {MealType} on {Date}
-AddRecipeIntent I want to eat {this is the longest|RecipeName} for {MealType} on {Date}
-AddRecipeIntent I want to eat {this is the longest recipe|RecipeName} for {MealType} on {Date}
-AddRecipeIntent I want to eat {this is the longest recipe name|RecipeName} for {MealType} on {Date}
-AddRecipeIntent I want to eat {this|RecipeName} on {Date} for {MealType}
-AddRecipeIntent I want to eat {this is|RecipeName} on {Date} for {MealType}
-AddRecipeIntent I want to eat {this is the|RecipeName} on {Date} for {MealType}
-AddRecipeIntent I want to eat {this is the longest|RecipeName} on {Date} for {MealType}
-AddRecipeIntent I want to eat {this is the longest recipe|RecipeName} on {Date} for {MealType}
-AddRecipeIntent I want to eat {this is the longest recipe name|RecipeName} on {Date} for {MealType}
-AddRecipeIntent On {Date} I want to eat {this|RecipeName} for {MealType}
-AddRecipeIntent On {Date} I want to eat {this is|RecipeName} for {MealType}
-AddRecipeIntent On {Date} I want to eat {this is the|RecipeName} for {MealType}
-AddRecipeIntent On {Date} I want to eat {this is the longest|RecipeName} for {MealType}
-AddRecipeIntent On {Date} I want to eat {this is the longest recipe|RecipeName} for {MealType}
-AddRecipeIntent On {Date} I want to eat {this is the longest recipe name|RecipeName} for {MealType}
-AddRecipeNoDateIntent I want to eat {this|RecipeName} for {MealType}
-AddRecipeNoDateIntent I want to eat {this is|RecipeName} for {MealType}
-AddRecipeNoDateIntent I want to eat {this is the|RecipeName} for {MealType}
-AddRecipeNoDateIntent I want to eat {this is the longest|RecipeName} for {MealType}
-AddRecipeNoDateIntent I want to eat {this is the longest recipe|RecipeName} for {MealType}
-AddRecipeNoDateIntent I want to eat {this is the longest recipe name|RecipeName} for {MealType}
-AddRecipeNoMealTypeIntent I want to eat {this|RecipeName} on {Date}
-AddRecipeNoMealTypeIntent I want to eat {this is|RecipeName} on {Date}
-AddRecipeNoMealTypeIntent I want to eat {this is the|RecipeName} on {Date}
-AddRecipeNoMealTypeIntent I want to eat {this is the longest|RecipeName} on {Date}
-AddRecipeNoMealTypeIntent I want to eat {this is the longest recipe|RecipeName} on {Date}
-AddRecipeNoMealTypeIntent I want to eat {this is the longest recipe name|RecipeName} on {Date}
-AddRecipeNoMealTypeIntent On {Date} I want to eat {this|RecipeName}
-AddRecipeNoMealTypeIntent On {Date} I want to eat {this is|RecipeName}
-AddRecipeNoMealTypeIntent On {Date} I want to eat {this is the|RecipeName}
-AddRecipeNoMealTypeIntent On {Date} I want to eat {this is the longest|RecipeName}
-AddRecipeNoMealTypeIntent On {Date} I want to eat {this is the longest recipe|RecipeName}
-AddRecipeNoMealTypeIntent On {Date} I want to eat {this is the longest recipe name|RecipeName}
+AddRecipeIntent I want to eat {cream|RecipeName} for {MealType} on {Date}
+AddRecipeIntent I want to eat {cream puffs|RecipeName} for {MealType} on {Date}
+AddRecipeIntent I want to eat {quick oatmeal pancakes|RecipeName} for {MealType} on {Date}
+AddRecipeIntent I want to eat {lemon poppy seed pancakes|RecipeName} for {MealType} on {Date}
+AddRecipeIntent I want to eat {chef john's chicken and mushrooms|RecipeName} for {MealType} on {Date}
+AddRecipeIntent I want to eat {oven baked garlic and parmesan fries|RecipeName} for {MealType} on {Date}
+AddRecipeIntent I want to eat {carrot cake with pineapple cream cheese frosting|RecipeName} for {MealType} on {Date}
+AddRecipeIntent I want to eat {cream|RecipeName} on {Date} for {MealType}
+AddRecipeIntent I want to eat {cream puffs|RecipeName} on {Date} for {MealType}
+AddRecipeIntent I want to eat {quick oatmeal pancakes|RecipeName} on {Date} for {MealType}
+AddRecipeIntent I want to eat {lemon poppy seed pancakes|RecipeName} on {Date} for {MealType}
+AddRecipeIntent I want to eat {chef john's chicken and mushrooms|RecipeName} on {Date} for {MealType}
+AddRecipeIntent I want to eat {oven baked garlic and parmesan fries|RecipeName} on {Date} for {MealType}
+AddRecipeIntent I want to eat {carrot cake with pineapple cream cheese frosting|RecipeName} on {Date} for {MealType}
+AddRecipeIntent On {Date} I want to eat {cream|RecipeName} for {MealType}
+AddRecipeIntent On {Date} I want to eat {cream puffs|RecipeName} for {MealType}
+AddRecipeIntent On {Date} I want to eat {quick oatmeal pancakes|RecipeName} for {MealType}
+AddRecipeIntent On {Date} I want to eat {lemon poppy seed pancakes|RecipeName} for {MealType}
+AddRecipeIntent On {Date} I want to eat {chef john's chicken and mushrooms|RecipeName} for {MealType}
+AddRecipeIntent On {Date} I want to eat {oven baked garlic and parmesan fries|RecipeName} for {MealType}
+AddRecipeIntent On {Date} I want to eat {carrot cake with pineapple cream cheese frosting|RecipeName} for {MealType}
+AddRecipeNoDateIntent I want to eat {cream|RecipeName} for {MealType}
+AddRecipeNoDateIntent I want to eat {cream puffs|RecipeName} for {MealType}
+AddRecipeNoDateIntent I want to eat {quick oatmeal pancakes|RecipeName} for {MealType}
+AddRecipeNoDateIntent I want to eat {lemon poppy seed pancakes|RecipeName} for {MealType}
+AddRecipeNoDateIntent I want to eat {chef john's chicken and mushrooms|RecipeName} for {MealType}
+AddRecipeNoDateIntent I want to eat {oven baked garlic and parmesan fries|RecipeName} for {MealType}
+AddRecipeNoDateIntent I want to eat {carrot cake with pineapple cream cheese frosting|RecipeName} for {MealType}
+AddRecipeNoMealTypeIntent I want to eat {cream|RecipeName} on {Date}
+AddRecipeNoMealTypeIntent I want to eat {cream puffs|RecipeName} on {Date}
+AddRecipeNoMealTypeIntent I want to eat {quick oatmeal pancakes|RecipeName} on {Date}
+AddRecipeNoMealTypeIntent I want to eat {lemon poppy seed pancakes|RecipeName} on {Date}
+AddRecipeNoMealTypeIntent I want to eat {chef john's chicken and mushrooms|RecipeName} on {Date}
+AddRecipeNoMealTypeIntent I want to eat {oven baked garlic and parmesan fries|RecipeName} on {Date}
+AddRecipeNoMealTypeIntent I want to eat {carrot cake with pineapple cream cheese frosting|RecipeName} on {Date}
+AddRecipeNoMealTypeIntent On {Date} I want to eat {cream|RecipeName}
+AddRecipeNoMealTypeIntent On {Date} I want to eat {cream puffs|RecipeName}
+AddRecipeNoMealTypeIntent On {Date} I want to eat {quick oatmeal pancakes|RecipeName}
+AddRecipeNoMealTypeIntent On {Date} I want to eat {lemon poppy seed pancakes|RecipeName}
+AddRecipeNoMealTypeIntent On {Date} I want to eat {chef john's chicken and mushrooms|RecipeName}
+AddRecipeNoMealTypeIntent On {Date} I want to eat {oven baked garlic and parmesan fries|RecipeName}
+AddRecipeNoMealTypeIntent On {Date} I want to eat {carrot cake with pineapple cream cheese frosting|RecipeName}
 IngredAmountAndUnitSpecifierIntent {IngredAmount} {IngredUnit}
 IngredAmountSpecifierIntent {IngredAmount}
 IngredUnitSpecifierIntent {IngredUnit}
