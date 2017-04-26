@@ -113,6 +113,7 @@ def add_recipe_to_calendar(intent):
     if table_recipe:
         date = intent["slots"]["Date"]["value"]
         meal_type = intent["slots"]["MealType"]["value"].title()
+        dynamodb = boto3.resource("dynamodb", region_name="us-east-1")
         cook_smart_calendar = dynamodb.Table("CookSmartCalendar")
         response = cook_smart_calendar.put_item(
             Item = {
