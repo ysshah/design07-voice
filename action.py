@@ -54,6 +54,12 @@ def on_intent(intent_request, session):
         elif intent_name == "GeneralQueryIntent":
             return recipe_commands(session)
 
+    elif intent_name == "PantryAmountQueryIntent" or intent_name == "PantryExpirationQueryIntent":
+        return finish_pantry_query(intent)
+
+    elif intent_name == "CalendarQueryIntent":
+        return finish_calendar_query(intent)
+
     elif intent_name == "AddRecipeIntent":
         return add_recipe_to_calendar(intent)
 
@@ -93,6 +99,110 @@ def on_intent(intent_request, session):
     else:
         raise ValueError("Invalid intent")
 
+
+def finish_pantry_query(intent):
+    card_title = "Finish Pantry Query"
+    input_ingred_name = intent["slots"]["IngredName"]["value"]
+    dynamodb = boto3.resource("dynamodb", region_name="us-east-1")
+    cook_smart_pantry = dynamodb.Table("CookSmartPantry")
+    response = cook_smart_pantry.scan()
+    ingredient_found = None
+
+    for ingredient in response["Items"]:
+        if (input_ingred_name.lower() == ingredient["IngredientName"].lower()):
+            ingredient_found = ingredient
+
+    if ingredient_found:
+        ingredient_name = ingredient_found["IngredientName"]
+        ingredient_amount = ingredient_found["IngredientAmount"]
+        ingredient_unit = ingredient_found["IngredientUnit"]
+        expiration_date = ingredient_found["ExpirationDate"]
+
+        expiration_date_dict = get_year_month_day_strings(expiration_date)
+        expiration_year = expiration_date_dict.get("Year")
+        expiration_month = expiration_date_dict.get("Month")
+        expiration_day = expiration_date_dict.get("Day")
+
+        speech_output = "You have " + ingredient_amount + " " + ingredient_unit + " of " + ingredient_name + " left. " \
+                        "The expiration date is " + expiration_month + " " + expiration_day + ", " + expiration_year
+
+    else:
+        speech_output = "You do not have any " + input_ingred_name + " in the pantry"
+
+    return build_response(build_speechlet_response(speech_output, card_title))
+
+
+def get_year_month_day_strings(input_date):
+    months = {
+        "01": "January", "02": "February",
+        "03": "March", "04": "April",
+        "05": "May", "06": "June",
+        "07": "July", "08": "August",
+        "09": "September", "10": "October",
+        "11": "November", "12": "December"
+    }
+
+    days = {
+        "01": "first",
+        "02": "second", "03": "third",
+        "04": "fourth", "05": "fifth",
+        "06": "sixth", "07": "seventh",
+        "08": "eighth", "09": "ninth",
+        "10": "tenth", "11": "eleventh",
+        "12": "twelfth", "13": "thirteenth",
+        "14": "fourteenth", "15": "fifteenth",
+        "16": "sixteenth", "17": "seventeenth",
+        "18": "eighteenth", "19": "nineteenth",
+        "20": "twentieth", "21": "twenty first",
+        "22": "twenty second", "23": "twenty third",
+        "24": "twenty fourth", "25": "twenty fifth",
+        "26": "twenty sixth", "27": "twenty seventh",
+        "28": "twenty eight", "29": "twenty ninth",
+        "30": "thirtieth", "31": "thirty first"
+    }
+
+    input_year = input_date[0:4]
+    input_month = input_date[5:7]
+    input_day = input_date[8:]
+
+    year_string = input_year
+    month_string = months.get(input_month)
+    day_string = days.get(input_day)
+    return {"Year": year_string,
+            "Month": month_string,
+            "Day": day_string}
+
+def finish_calendar_query(intent):
+    card_title = "Finish Calendar Query"
+    input_date = intent["slots"]["Date"]["value"]
+
+# getting string for year, month, day from input AMAZON.DATE slot
+    date_dict = get_year_month_day_strings(input_date)
+    year_string = date_dict.get("Year")
+    month_string = date_dict.get("Month")
+    day_string = date_dict.get("Day")
+
+# finding meal within calendar
+    input_meal_type = intent["slots"]["MealType"]["value"]
+
+    dynamodb = boto3.resource("dynamodb", region_name="us-east-1")
+    cook_smart_calendar = dynamodb.Table("CookSmartCalendar")
+    response = cook_smart_calendar.scan()
+    meal_found = None
+
+    for meal in response["Items"]:
+        if (input_date == meal["Date"]) and (input_meal_type == meal["MealType"].lower()):
+            meal_found = meal
+
+    if meal_found:
+        speech_output = "You are eating " + meal_found["RecipeName"] + " for " + input_meal_type + \
+                        " on " + month_string + " " + day_string + ", " + year_string
+
+    else :
+        speech_output = "There is no meal planned for " + input_meal_type + \
+                        " on " + month_string + " " + day_string + ", " + year_string
+
+    return build_response(build_speechlet_response(speech_output, card_title))
 
 def recipeInTable(recipe_name):
     dynamodb = boto3.resource("dynamodb", region_name="us-east-1")

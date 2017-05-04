@@ -1,0 +1,33 @@
+LIST_OF_MEALTYPES
+    breakfast
+    lunch
+    dinner
+    dessert
+
+LIST_OF_UNITS
+    gram
+    grams
+    kilogram
+    kilograms
+    ounce
+    ounces
+    pound
+    pounds
+    fluid ounce
+    fluid ounces
+    gallon
+    gallons
+    pint
+    pints
+    cup
+    cups
+    quart
+    quarts
+
+DoesOrDo
+    does
+    do
+
+IsOrAre
+    is
+    are

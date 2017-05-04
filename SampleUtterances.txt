@@ -1,3 +1,51 @@
+PantryAmountQueryIntent how much {this|IngredName} {IsOrAre} there
+PantryAmountQueryIntent how much {this is|IngredName} {IsOrAre} there
+PantryAmountQueryIntent how much {this is the|IngredName} {IsOrAre} there
+PantryAmountQueryIntent how much {this is the longest|IngredName} {IsOrAre} there
+PantryAmountQueryIntent how much {this is the longest ingredient|IngredName} {IsOrAre} there
+PantryAmountQueryIntent how much {this is the longest ingredient name|IngredName} {IsOrAre} there
+PantryAmountQueryIntent how much {this|IngredName} {IsOrAre} left
+PantryAmountQueryIntent how much {this is|IngredName} {IsOrAre} left
+PantryAmountQueryIntent how much {this is the|IngredName} {IsOrAre} left
+PantryAmountQueryIntent how much {this is the longest|IngredName} {IsOrAre} left
+PantryAmountQueryIntent how much {this is the longest ingredient|IngredName} {IsOrAre} left
+PantryAmountQueryIntent how much {this is the longest ingredient name|IngredName} {IsOrAre} left
+PantryAmountQueryIntent how much {this|IngredName} {IsOrAre} in the pantry
+PantryAmountQueryIntent how much {this is|IngredName} {IsOrAre} in the pantry
+PantryAmountQueryIntent how much {this is the|IngredName} {IsOrAre} in the pantry
+PantryAmountQueryIntent how much {this is the longest|IngredName} {IsOrAre} in the pantry
+PantryAmountQueryIntent how much {this is the longest ingredient|IngredName} {IsOrAre} in the pantry
+PantryAmountQueryIntent how much {this is the longest ingredient name|IngredName} {IsOrAre} in the pantry
+PantryAmountQueryIntent how much {this|IngredName} do I have
+PantryAmountQueryIntent how much {this is|IngredName} do I have
+PantryAmountQueryIntent how much {this is the|IngredName} do I have
+PantryAmountQueryIntent how much {this is the longest|IngredName} do I have
+PantryAmountQueryIntent how much {this is the longest ingredient|IngredName} do I have
+PantryAmountQueryIntent how much {this is the longest ingredient name|IngredName} do I have
+PantryAmountQueryIntent how much {this|IngredName} do I have left
+PantryAmountQueryIntent how much {this is|IngredName} do I have left
+PantryAmountQueryIntent how much {this is the|IngredName} do I have left
+PantryAmountQueryIntent how much {this is the longest|IngredName} do I have left
+PantryAmountQueryIntent how much {this is the longest ingredient|IngredName} do I have left
+PantryAmountQueryIntent how much {this is the longest ingredient name|IngredName} do I have left
+
+PantryExpirationQueryIntent when {DoesOrDo} the {carrots|IngredName} expire
+PantryExpirationQueryIntent when {DoesOrDo} the {milk parsley|IngredName} expire
+PantryExpirationQueryIntent when {DoesOrDo} the {carrots milk parsley|IngredName} expire
+PantryExpirationQueryIntent when {DoesOrDo} the {celery carrots milk parsley|IngredName} expire
+PantryExpirationQueryIntent when {DoesOrDo} the {celery carrots mushrooms parsley milk|IngredName} expire
+PantryExpirationQueryIntent when {DoesOrDo} the {this is the longest ingredient name|IngredName} expire
+PantryExpirationQueryIntent when {DoesOrDo} the {parsley|IngredName} go bad
+PantryExpirationQueryIntent when {DoesOrDo} the {milk parsley|IngredName} go bad
+PantryExpirationQueryIntent when {DoesOrDo} the {carrots milk parsley|IngredName} go bad
+PantryExpirationQueryIntent when {DoesOrDo} the {celery carrots milk parsley|IngredName} go bad
+PantryExpirationQueryIntent when {DoesOrDo} the {mushrooms parsley milk carrots celery|IngredName} go bad
+PantryExpirationQueryIntent when {DoesOrDo} the {this is the longest ingredient name|IngredName} go bad
+
+CalendarQueryIntent what am I having for {MealType} on {Date}
+CalendarQueryIntent what is for {MealType} on {Date}
+CalendarQueryIntent what's for {MealType} on {Date}
+
 AddRecipeIntent I want to eat {cream|RecipeName} for {MealType} on {Date}
 AddRecipeIntent I want to eat {cream puffs|RecipeName} for {MealType} on {Date}
 AddRecipeIntent I want to eat {quick oatmeal pancakes|RecipeName} for {MealType} on {Date}

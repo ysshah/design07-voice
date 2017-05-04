@@ -153,6 +153,45 @@
     },
     {
       "intent": "GeneralQueryIntent"
+    },
+    {
+      "slots": [
+        {
+          "name": "IngredName",
+          "type": "AMAZON.LITERAL"
+        },
+        {
+          "name": "IsOrAre",
+          "type": "IsOrAre"
+        }
+      ],
+      "intent": "PantryAmountQueryIntent"
+    },
+    {
+      "slots": [
+        {
+          "name": "IngredName",
+          "type": "AMAZON.LITERAL"
+        },
+        {
+          "name": "DoesOrDo",
+          "type": "DoesOrDo"
+        }
+      ],
+      "intent": "PantryExpirationQueryIntent"
+    },
+    {
+      "slots": [
+        {
+          "name": "MealType",
+          "type": "LIST_OF_MEALTYPES"
+        },
+        {
+          "name": "Date",
+          "type": "AMAZON.DATE"
+        }
+      ],
+      "intent": "CalendarQueryIntent"
     }
   ]
 }
